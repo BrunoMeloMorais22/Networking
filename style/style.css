@@ -1,0 +1,311 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#programmer3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background: rgba(0, 0, 0, 0.493);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+header h1 {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#tema{
+    font-family: 'Courier New', Courier, monospace;
+    width: 80px;
+    font-size: 18px;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 5px;
+}
+
+nav {
+    gap: 20px;
+    display: flex;
+}
+
+nav a {
+    margin-top: 5px;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: bold;
+    color: white;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #bebebe;
+}
+
+ 
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    padding: 20px;
+}
+
+#container h1 {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#container p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+@keyframes pulse{
+    0%, 100%{
+        transform: scale(1);
+    }
+
+    50%{
+        transform: scale(1.1);
+    }
+}
+
+.cta-button{
+    animation: pulse 1.5s infinite alternate;
+}
+
+.cta-button {
+    text-decoration: none;
+    background: #d4d4d4;
+    color: #000;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background: #e0e0e0;
+}
+
+#comunidade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 10%;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    text-align: left;
+    height: auto;
+    min-height: 60vh;
+}
+
+.content {
+    display: flex;
+    max-width: 1200px;
+    height: 1000px;
+    gap: 40px;
+    align-items: center;
+}
+
+.text {
+    flex: 1;
+}
+
+.text > h1{
+    font-size: 40px;
+}
+
+.text > p{
+    font-size: 22px;
+}
+
+ul > li{
+    font-size: 20px;
+}
+
+.imagem{
+    flex: 1;
+    max-width: 700px;
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+}
+
+#eventos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 10%;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    text-align: left;
+    height: auto;
+    min-height: 60vh;
+}
+
+ul > li {
+    list-style: none;
+}
+
+#saibaMais{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 10%;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    text-align: left;
+    height: auto;
+    min-height: 60vh;
+}
+
+.imagem{
+    margin-left: 20px;
+}
+
+footer{
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+span {
+    color: rgb(6, 218, 6);
+    font-weight: bold;
+}
+
+footer > a > i{
+    font-size: 23px;
+    color: #0A66C2
+}
+
+#conhecerPessoas {
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(0, 0, 0, 0.514);
+    color: white;
+    font-family: 'Courier New', Courier, monospace
+}
+
+#conhecerPessoas h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.cards_membros {
+    display: inline-block;
+    background: white;
+    color: #0033A0;
+    font-weight: bold;
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.cards_membros:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cards_membros h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.cards_membros img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #FFD700;
+}
+
+.cards_membros p {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.cards_membros button {
+    background: #2bff00;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.cards_membros button a {
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: #0033A0;
+}
+
+.cards_membros button:hover {
+    background: #FFA500;
+}
+
+.cards_membros > a{
+    background: black;
+}
+
+
+.cards_membros > a{
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.cards_membros > a:hover{
+    text-decoration: underline;
+}
+
+.dark-mode{
+    background: rgb(37, 37, 37);
+    color: rgb(255, 255, 255);
+}
