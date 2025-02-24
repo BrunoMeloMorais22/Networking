@@ -12,3 +12,15 @@ document.getElementById("tema").addEventListener("click", function(){
         botaoTema.textContent = "Escuro"
     }
 })
+
+function toggleMenu() {
+    
+    var sidebar = document.getElementById("sidebar");
+    if (sidebar.style.right === "0px") {
+        sidebar.style.right = "-292px";
+    } else {
+        sidebar.style.right = "0px";
+    }
+}
+
+

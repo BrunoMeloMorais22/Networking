@@ -49,6 +49,7 @@ header h1 {
 nav {
     gap: 20px;
     display: flex;
+
 }
 
 nav a {
@@ -63,6 +64,70 @@ nav a {
 nav a:hover {
     color: #bebebe;
 }
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    right: -292px; 
+    width: 250px;
+    height: 100%;
+    background: #333;
+    padding-top: 60px;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    z-index: 2000;
+}
+
+#close-btn {
+    text-align: right;
+    font-size: 20px;
+    float: left;
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+}
+
+#sidebar a {
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+#sidebar a:hover {
+    background: #575757;
+}
+
+
+#menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    #menu-icon {
+        display: block;
+    }
+
+    nav {
+        display: none;
+    }
+
+    #sidebar{
+        display: flex;
+    }
+}
+
+.sidebar-active {
+    left: 0 !important;
+}
+
 
  
 #container {
@@ -198,26 +263,6 @@ ul > li {
     margin-left: 20px;
 }
 
-footer{
-    padding: 20px;
-    color: white;
-    font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-
-span {
-    color: rgb(6, 218, 6);
-    font-weight: bold;
-}
-
-footer > a > i{
-    font-size: 23px;
-    color: #0A66C2
-}
-
 #conhecerPessoas {
     text-align: center;
     padding: 50px 20px;
@@ -308,4 +353,24 @@ footer > a > i{
 .dark-mode{
     background: rgb(37, 37, 37);
     color: rgb(255, 255, 255);
+}
+
+footer{
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+span {
+    color: rgb(6, 218, 6);
+    font-weight: bold;
+}
+
+footer > a > i{
+    font-size: 23px;
+    color: #0A66C2
 }
