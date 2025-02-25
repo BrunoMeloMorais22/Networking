@@ -205,6 +205,19 @@ nav a:hover {
     align-items: center;
 }
 
+#events{
+    text-transform: none;
+}
+
+#events > button{
+    font-size: 17px;
+    padding: 10px;
+    background: black;
+    color: white;
+    border: 2px solid rgb(255, 255, 255);
+    width: 200px;
+}
+
 .text {
     flex: 1;
 }
