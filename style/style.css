@@ -79,6 +79,7 @@ nav a:hover {
     z-index: 2000;
 }
 
+
 #close-btn {
     text-align: right;
     font-size: 20px;
@@ -126,6 +127,20 @@ nav a:hover {
 
 .sidebar-active {
     left: 0 !important;
+}
+
+#avaliacoes{
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    text-align: center;
+}
+
+.clientes_avaliacoes > h1{
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: white;
+    font-family:'Courier New', Courier, monospace;
 }
 
 
@@ -212,7 +227,9 @@ nav a:hover {
 #events > button{
     font-size: 17px;
     padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
     background: black;
+    font-weight: bold;
     color: white;
     border: 2px solid rgb(255, 255, 255);
     width: 200px;
@@ -366,6 +383,25 @@ ul > li {
 .dark-mode{
     background: rgb(37, 37, 37);
     color: rgb(255, 255, 255);
+}
+
+.cards_avaliacao{
+    display: inline-block;
+    background: white;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000000;
+    font-weight: bold;
+    width: 300px;
+    margin: 20px auto auto 20px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.cards_avaliacao > h2{
+    color: blue;
+    font-size: 25px;
 }
 
 footer{
