@@ -130,7 +130,7 @@ nav a:hover {
 
     nav {
         display: none;
-        width: 65%;
+        width: 95%;
     }
 
     #sidebar{
@@ -138,8 +138,8 @@ nav a:hover {
         flex-direction: column;
         position: fixed;
         top: 0;
-        right: -78%; 
-        width: 94%;
+        right: -100%; 
+        width: 90%;
         height: 100vh;
         background-color: #333;
         box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
