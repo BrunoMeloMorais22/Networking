@@ -14,6 +14,7 @@ html {
 
 ::-webkit-scrollbar{
     background: rgba(0, 0, 0, 0.493);
+    background: transparent;
 }
 
 #programmer3 {
@@ -123,14 +124,40 @@ nav a:hover {
 @media (max-width: 768px) {
     #menu-icon {
         display: block;
+        margin-top: 3px;
+        width: 60%;
     }
 
     nav {
         display: none;
+        width: 65%;
     }
 
     #sidebar{
         display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -75%; 
+        width: 91%;
+        height: 100vh;
+        background-color: #333;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+        transition: right 0.3s ease-in-out;
+        padding: 20px;
+    }
+
+    #sidebar.active {
+        right: 0;
+    }
+
+    #close-btn {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
     }
 }
 
@@ -419,6 +446,12 @@ ul > li {
 .cards_avaliacao > h2{
     color: blue;
     font-size: 25px;
+}
+
+.cards_avaliacao:hover {
+    transform: scale(1.1);
+    color: black;
+    font-weight: bold;
 }
 
 footer{
