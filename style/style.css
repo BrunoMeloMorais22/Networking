@@ -8,6 +8,14 @@ html {
     scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar{
+    background: rgba(0, 0, 0, 0.493);
+}
+
 #programmer3 {
     position: fixed;
     top: 0;
@@ -29,6 +37,7 @@ header {
     width: 100%;
     top: 0;
     left: 0;
+    z-index: 100;
 }
 
 header h1 {
@@ -184,6 +193,13 @@ nav a:hover {
     animation: pulse 1.5s infinite alternate;
 }
 
+.contato .row .image .img{
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    min-height: 100%;
+}
+
 .cta-button {
     text-decoration: none;
     background: #d4d4d4;
@@ -323,6 +339,7 @@ ul > li {
 .cards_membros:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1;
 }
 
 .cards_membros h2 {
