@@ -76,6 +76,7 @@ nav a:hover {
 }
 
 
+
 #sidebar {
     position: fixed;
     top: 0;
@@ -92,22 +93,19 @@ nav a:hover {
 
 
 #close-btn {
-    text-align: left;
+    text-align: right;
     font-size: 20px;
-    margin-left: 5px;
+    float: left;
     cursor: pointer;
     color: white;
     padding: 10px;
 }
 
 #sidebar a {
-    position: relative;
-    display: block;
-    top: -90px;
-    line-height: 1px;
     padding: 15px;
     text-decoration: none;
     color: white;
+    display: block;
 }
 
 #sidebar a:hover {
@@ -116,6 +114,7 @@ nav a:hover {
 
 
 #menu-icon {
+    display: none;
     font-size: 30px;
     cursor: pointer;
     position: absolute;
@@ -132,28 +131,22 @@ nav a:hover {
     }
 
     nav {
-        margin-top: 100px;
         display: none;
         width: 95%;
     }
 
     #sidebar{
         display: flex;
-        margin-top: 100px;
         flex-direction: column;
         position: fixed;
-        top: 0px;
+        top: 0;
         right: -100%; 
-        width: 90%;
+        width: 100%;
         height: 100vh;
         background-color: #333;
         box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
         transition: right 0.3s ease-in-out;
         padding: 20px;
-    }
-
-    #sidebar > a{
-        margin-top: 100px;
     }
 
     #sidebar.active {
