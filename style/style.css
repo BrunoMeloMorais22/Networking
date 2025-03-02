@@ -132,12 +132,14 @@ nav a:hover {
     }
 
     nav {
+        margin-top: 100px;
         display: none;
         width: 95%;
     }
 
     #sidebar{
         display: flex;
+        margin-top: 100px;
         flex-direction: column;
         position: fixed;
         top: 0;
