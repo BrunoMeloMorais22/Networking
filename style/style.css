@@ -151,7 +151,7 @@ nav a:hover {
     }
 
     #sidebar > a{
-        top: 70px;
+        margin-top: 100px;
     }
 
     #sidebar.active {
