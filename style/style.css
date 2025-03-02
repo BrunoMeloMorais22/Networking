@@ -150,6 +150,10 @@ nav a:hover {
         padding: 20px;
     }
 
+    #sidebar > a{
+        top: 70px;
+    }
+
     #sidebar.active {
         right: 0;
     }
