@@ -150,7 +150,6 @@ nav a:hover {
         transition: right 0.3s ease-in-out;
         padding: 20px;
         justify-content: flex-end;
-        align-items: center;
     }
 
     #sidebar > a{
