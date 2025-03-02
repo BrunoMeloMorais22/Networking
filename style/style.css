@@ -75,6 +75,7 @@ nav a:hover {
     color: #bebebe;
 }
 
+
 #sidebar {
     position: fixed;
     top: 0;
@@ -91,19 +92,22 @@ nav a:hover {
 
 
 #close-btn {
-    text-align: right;
+    text-align: left;
     font-size: 20px;
-    float: left;
+    margin-left: 5px;
     cursor: pointer;
     color: white;
     padding: 10px;
 }
 
 #sidebar a {
+    position: relative;
+    display: block;
+    top: -90px;
+    line-height: 1px;
     padding: 15px;
     text-decoration: none;
     color: white;
-    display: block;
 }
 
 #sidebar a:hover {
@@ -112,7 +116,6 @@ nav a:hover {
 
 
 #menu-icon {
-    display: none;
     font-size: 30px;
     cursor: pointer;
     position: absolute;

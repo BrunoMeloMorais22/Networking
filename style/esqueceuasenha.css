@@ -1,0 +1,48 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+form{
+    background: rgb(182, 182, 182);
+    max-width: 600px;
+    height: 230px;
+    padding: 20px;
+    margin: 160px auto;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px black;
+}
+
+form > h1, p{
+    text-align: center;
+}
+
+form > p{
+    font-size: 20px;
+}
+
+form > input{
+    margin-left: 70px;
+    text-align: center;
+    padding: 3px;
+    width: 250px;
+    font-size: 17px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+form > button{
+    padding: 3px;
+    background: rgb(3, 180, 3);
+    border-radius: 20px;
+    width: 100px;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+
