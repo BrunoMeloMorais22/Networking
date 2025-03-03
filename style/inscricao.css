@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+#container {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    height: 1220px;
+    text-align: center;
+    border-radius: 20px;
+    background: rgba(165, 165, 165, 0.726);
+    position: relative; 
+    z-index: 1;
+}
+
+img {
+    width: 100vw;
+    height: 100vh; 
+    object-fit: cover;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: -1; 
+}
+
+#inscricao {
+    z-index: 2;
+}
+
+#inscricao > input {
+    padding: 3px;
+    width: 300px;
+    text-align: center;
+    border: 2px solid black;
+    font-size: 16px;
+    display: block;
+    margin: 5px auto;
+}
+
+#inscricao > h2 {
+    font-size: 30px;
+}
+
+#inscricao > button {
+    margin-top: 10px;
+    padding: 5px;
+    color: white;
+    width: 500px;
+    font-size: 20px;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+}

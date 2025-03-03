@@ -108,8 +108,13 @@ nav a:hover {
     padding: 15px;
     line-height: 5px;
     text-decoration: none;
-    color: white;
+    color: rgb(255, 255, 255);
     display: block;
+}
+
+a:hover{
+    transform: scale(1.02);
+    transition: 0.2s ease-in-out;
 }
 
 #sidebar a:hover {
@@ -281,6 +286,7 @@ nav a:hover {
     color: white;
     border: 2px solid rgb(255, 255, 255);
     width: 200px;
+    cursor: pointer;
 }
 
 .text {
