@@ -1,0 +1,93 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#container {
+    position: absolute;
+    justify-content: center;
+    background: rgb(160, 160, 161);
+    padding: 20px;
+    text-align: center;
+}
+
+#container > h1{
+    background: rgb(2, 223, 2);
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 40px;
+}
+
+#content{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#content > p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#superevento{
+    background: gray;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+#superevento > p{
+    line-height: 35px;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+}
+
+ul > li{
+    list-style: none;
+}
+
+ul > li{
+    position: relative;
+    left: 35%;
+    background: yellow;
+    max-width: 400px;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.proximos{
+    background: gray;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+button {
+    padding: 5px;
+    background: rgb(2, 194, 2);
+    width: 300px;
+    border: 2px solid black;
+    font-size: 20px;
+}
+
+.proximos > p{
+    font-weight: 700;
+}
+
+@keyframes pulse{
+    0%, 100%{
+        transform: scale(1);
+    }
+
+    50%{
+        transform: scale(1.1);
+    }
+}
+
+.btn{
+    animation: pulse 2s infinite;
+}
+

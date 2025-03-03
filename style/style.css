@@ -41,7 +41,7 @@ header {
     z-index: 100;
 }
 
-header h1 {
+header > h1 {
     color: rgb(255, 255, 255);
     font-weight: bold;
     cursor: pointer;
@@ -93,16 +93,20 @@ nav a:hover {
 
 
 #close-btn {
-    text-align: right;
+    text-align: left;
+    margin-top: -40px;
+    margin-left: 3px;
     font-size: 20px;
-    float: left;
     cursor: pointer;
     color: white;
     padding: 10px;
 }
 
 #sidebar a {
+    position: relative;
+    top: -70px;
     padding: 15px;
+    line-height: 5px;
     text-decoration: none;
     color: white;
     display: block;
@@ -114,7 +118,6 @@ nav a:hover {
 
 
 #menu-icon {
-
     font-size: 30px;
     cursor: pointer;
     position: absolute;
