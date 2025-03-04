@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/inscricao.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+    <div id="container">
+        <form id="inscricaoFormulario">
+            <h1>Inscrição</h1>
+            <br>
+            <div class="input-box">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="name" name="name" placeholder="Digite seu nome" required> <br><br>
+            </div>
+            <div class="input-box">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" id="email" name="email" placeholder="Digite seu email" required> <br><br>
+            </div>
+            <div class="input-box">
+                <i class="fa-solid fa-phone"></i>
+                <input type="tel" id="phone" name="phone" placeholder="Digite seu Telefone" required> <br><br>
+            </div>
+
+            <h2>Necessidades Especiais</h2> <br>
+            <div class="radio-group">
+                <input type="radio" name="ajuda" id="pcd">
+                <label for="pcd"> Sim, sou deficiente</label> <br><br>
+
+                <input type="radio" name="ajuda" id="nopcd">
+                <label for="nopcd">Não, não sou deficiente</label>
+            </div>
+            
+            <h2>Alimentação</h2> <br>
+            <div class="input-box">
+                <input type="checkbox" name="alimentacao" id="semgluten"> Sem glúten <br>
+                <input type="checkbox" name="alimentacao" id="vegano"> Vegano(a) <br>
+                <input type="checkbox" name="alimentacao" id="vegetariano"> Vetetariano(a) <br>
+                <input type="checkbox" name="alimentacao" id="semgluten"> Sem Lactose <br>
+                <input type="checkbox" name="alimentacao" id="diabetico"> Diabético <br>
+            </div>
+            <br>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>

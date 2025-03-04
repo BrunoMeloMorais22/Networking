@@ -73,6 +73,7 @@ button {
     width: 300px;
     border: 2px solid black;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .proximos > p{
