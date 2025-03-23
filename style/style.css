@@ -81,13 +81,14 @@ nav a:hover {
     position: fixed;
     padding: 10px;
     top: 0;
-    right: -292px; 
-    width: 250px;
+    right: -293px; 
+    width: 292px;
     height: 100%;
     background: #333;
     padding-top: 60px;
     transition: right 0.3s ease;
     display: flex;
+    overflow-y: auto;
     flex-direction: column;
     z-index: 2000;
 }

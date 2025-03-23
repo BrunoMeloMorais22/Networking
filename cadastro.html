@@ -6,11 +6,57 @@
     <link rel="stylesheet" href="./style/cadastro.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Tela de Login</title>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js"; // Import Firestore
+    
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyC56evCJTXApwvd0RKnOXuPorXotd8YgDg",
+            authDomain: "networking-cab82.firebaseapp.com",
+            projectId: "networking-cab82",
+            storageBucket: "networking-cab82.firebasestorage.app",
+            messagingSenderId: "343151640777",
+            appId: "1:343151640777:web:2627745ef671300a8a0d18",
+            measurementId: "G-SQPMVP00JP"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    
+        // Initialize Firestore
+        const db = getFirestore(app);
+    
+        // Function to handle user registration and save data to Firestore
+        const registerUser = async () => {
+            // Get the form data (example: username and email)
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+    
+            try {
+                // Add user data to Firestore
+                const docRef = await addDoc(collection(db, "users"), {
+                    username: username,
+                    email: email,
+                    createdAt: new Date()
+                });
+                console.log("Document written with ID: ", docRef.id);
+                alert('User registered successfully!');
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                alert('Error registering user');
+            }
+        }
+    </script>
+    
 </head>
 <body>
     <img id="bgImage" src="image/login_cadastro.webp" alt="">
     <div class="content">
-        <form id="formCadastro">
+        <form id="formCadastro" onsubmit="event.preventDefault(); registerUser();">
 
             <h1>Cadastro</h1> <br>
 
@@ -27,7 +73,6 @@
             <i class="fa-solid fa-lock"></i>
             <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Confirmar Senha" required>
             <br><br>
-
             <div id="feedbackCadastro"></div>
 
             <br>

@@ -25,6 +25,44 @@ body{
     z-index: -1;
 }
 
+#option-group {
+    font-family: "Montserrat", sans-serif;
+    background: #f4f4f4;
+    margin-left: 35px;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#option-group h1 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#option-group label {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#option-group label:hover {
+    background: #e0e0e0;
+}
+
+#option-group input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+    accent-color: #0033A0;
+}
+
+
 #formCadastro {
     background: rgba(255, 255, 255, 0.808);
     padding: 20px;
