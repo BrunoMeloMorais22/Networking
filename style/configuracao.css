@@ -1,0 +1,81 @@
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+img{
+    max-width: 150px;
+    margin-left: 383px;
+}
+.container {
+    width: 70%;
+    margin: auto;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    color: #0033A0;
+}
+.settings-section {
+    margin-bottom: 30px;
+}
+.settings-section h2 {
+    color: #0033A0;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+label {
+    font-weight: bold;
+}
+input[type="text"], input[type="email"], input[type="password"], input[type="file"], select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #C0C0C0;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border-radius: 4px;
+}
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+.btn {
+    padding: 10px 20px;
+    background-color: #000000a2;
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #242424;
+    transition: 0.3s ease-in-out;
+}
+
+.light-mode {
+    background-color: #f4f4f4;
+    color: #000000;
+}
+
+.light-mode .container {
+    background-color: white;
+    color: #000000;
+}
+
+.dark-mode {
+    background-color: #121212;
+    color: #000000;
+}
+
+.dark-mode.body{
+    background-color: #f4f4f4;
+}

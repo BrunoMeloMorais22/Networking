@@ -8,7 +8,7 @@ document.getElementById("inscricaoFormulario").addEventListener("submit", functi
     let cpf = document.getElementById("cpd").value
     let info = document.getElementById("info")
 
-    info.innerHTML = ""
+    info.innerHTML = "" 
 
     if(name === "" || email === "" || phone === "" || cpf === ""){
         let p = document.createElement("p")

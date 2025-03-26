@@ -3,9 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/configuracao.css">
     <title></title>
 </head>
 <body>
-    <h1>Tela em Desenvolvimento</h1>
+    <div class="container">
+        <h1>Configurações de Conta</h1>
+        <img src="image/user.jpg" alt="">
+        <div class="settings-section">
+            <h2>Perfil</h2>
+            <div class="form-group">
+                <label for="username">Nome de Usuário:</label>
+                <input type="text" id="username" value="Bruno Melo">
+            </div>
+            <div class="form-group">
+                <label for="profile-pic">Foto de Perfil:</label>
+                <input type="file" id="profile-pic">
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" value="bruno@exemplo.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Nova Senha:</label>
+                <input type="password" id="password">
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h2>Notificações</h2>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="email-notifications" checked> Receber Notificações por E-mail
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="push-notifications" checked> Ativar Notificações Push
+                </label>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h2>Privacidade</h2>
+            <div class="form-group">
+                <label for="profile-visibility">Visibilidade do Perfil:</label>
+                <select id="profile-visibility">
+                    <option value="publico">Público</option>
+                    <option value="privado" selected>Privado</option>
+                    <option value="somente-amigos">Somente Amigos</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h2>Preferências de Tema</h2>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="dark-mode"> Ativar Modo Escuro
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button id="salvar" class="btn">Salvar Alterações</button>
+            <button id="voltar" class="btn">Voltar ao menu principal</button>
+        </div>
+    </div>
+
+    <script src="js/configuração.js"></script>
 </body>
 </html>
