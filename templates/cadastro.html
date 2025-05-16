@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/cadastro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Tela de Cadastro</title>
+
+</head>
+<body>
+    <img id="bgImage" src="/static/image/login_cadastro.webp" alt="">
+    <div class="content">
+        <form id="formCadastro" onsubmit="event.preventDefault(); registerUser();">
+
+            <h1>Cadastro</h1> <br>
+
+            <i class="fa-solid fa-user"></i>
+            <input type="text" id="nomeCadastro" name="name" placeholder="Digite seu nome" required> <br> <br>
+
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" id="emailCadastro" name="emailCadastro" placeholder="Digite seu Email" required>
+            <br> <br>
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="senhaCadastro" name="senhaCadastro" placeholder="Digite sua senha" required> 
+            <br> <br>
+
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Confirmar Senha" required>
+            <br><br>
+            <div id="feedbackCadastro"></div>
+
+            <br>
+
+            <button type="submit"> <i class="fa-solid fa-rocket"></i> Fazer Cadastro </button> <br> <br>
+
+            <div id="extra-links">
+                <a href="/templates/login.html">Já tem uma conta? Faça login</a>
+            </div>
+
+
+        </form>
+    </div>
+
+    <script src="/static/js/cadastro.js"></script>
+</body>
+</html>

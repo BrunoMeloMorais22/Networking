@@ -1,0 +1,9 @@
+from db import db
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nomeCadastro = db.Column(db.String(100), nullable=False, unique=True)
+    emailCadastro = db.Column(db.String(100), nullable=False)
+    senhaCadastro = db.Column(db.String(100), nullable=False)
+    confirmarSenha = db.Column(db.String(100), nullable=False)
+    
