@@ -1,34 +1,34 @@
 
-document.getElementById("formCadastro").addEventListener("submit", function(event){
+function fazerCadastro(event){
     event.preventDefault()
 
-    let nomeCadastro = document.getElementById("nomeCadastro").value
-    let emailCadastro = document.getElementById("emailCadastro").value
-    let senhaCadastro = document.getElementById("senhaCadastro").value
-    let confirmarSenha = document.getElementById("confirmarSenha").value
-    let feedbackCadastro = document.getElementById("feedbackCadastro")
+    nomeCadastro = document.getElementById("nomeCadastro").value
+    emailCadastro = document.getElementById("emailCadastro").value
+    senhaCadastro = document.getElementById("senhaCadastro").value
+    confirmarSenha = document.getElementById("confirmarSenha").value
 
-    const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    fetch("/cadastro", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: ({ nomeCadastro, emailCadastro, senhaCadastro, confirmarSenha })
+    })
+    .then(res => res.json())
+    .then(data =>{
+        console.log("Resposta do servidor", data)
+        document.getElementById("feedbackCadastro").innerHTML = data.mensagem
 
-    if(confirmarSenha !== senhaCadastro){
-        feedbackCadastro.style.color = "red"
-        feedbackCadastro.textContent = "As senhas não combinam"
-        feedbackCadastro.style.fontWeight = "bold"
-        return
-    }
+        if(data.sucesso){
+            document.getElementById("feedbackCadastro").style.color = "green"
+        }
+        else{
+            document.getElementById("feedbackCadastro").style.color = "red"
+        }
+        console.log(data)
+    })
 
-    if(regex.test(senhaCadastro)){
-        localStorage.setItem("email", emailCadastro)
-        localStorage.setItem("senha", senhaCadastro)
-
-        feedbackCadastro.style.color = "green"
-        feedbackCadastro.textContent = "Cadastrado com sucesso. Faça Login"
-        feedbackCadastro.style.fontWeight = "bold"
-    }
-
-    else{
-        feedbackCadastro.style.color = "red"
-        feedbackCadastro.textContent = "A senha precisa conter 8 caracteres, 1 letra maiúscula, 1 caractere especia e 1 número"
-        feedbackCadastro.style.fontWeight =  "bold"
-    }
-})
+    .catch(error =>{
+        document.getElementById("feedbackCadastro").innerText = "Erro ao se conectar com o servidor"
+        document.getElementById("feedbackCadastro").style.color = "red"
+        console.error(error)
+    })
+}

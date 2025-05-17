@@ -11,7 +11,7 @@
 <body>
     <img id="bgImage" src="/static/image/login_cadastro.webp" alt="">
     <div class="content">
-        <form id="formCadastro" onsubmit="event.preventDefault(); registerUser();">
+        <form id="formCadastro" onsubmit="fazerCadastro(event)">
 
             <h1>Cadastro</h1> <br>
 
@@ -35,7 +35,7 @@
             <button type="submit"> <i class="fa-solid fa-rocket"></i> Fazer Cadastro </button> <br> <br>
 
             <div id="extra-links">
-                <a href="/templates/login.html">Já tem uma conta? Faça login</a>
+                <a href="/login">Já tem uma conta? Faça login</a>
             </div>
 
 
