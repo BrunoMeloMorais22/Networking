@@ -5,7 +5,7 @@ document.getElementById("inscricaoFormulario").addEventListener("submit", functi
     let name = document.getElementById("name").value
     let email = document.getElementById("email").value
     let phone = document.getElementById("phone").value
-    let cpf = document.getElementById("cpd").value
+    let cpf = document.getElementById("cpf").value
     let info = document.getElementById("info")
 
     info.innerHTML = "" 
@@ -38,7 +38,7 @@ document.getElementById("inscricaoFormulario").addEventListener("submit", functi
         document.getElementById("info").appendChild(button)
 
         button.onclick = () =>{
-            window.location.href = "index2.html"
+            window.location.href = "/index2f"
         }
     }
 })

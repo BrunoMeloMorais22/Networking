@@ -11,7 +11,7 @@
     <body>
         <img id="bgImage" src="/static/image/login_cadastro.webp" alt="Imagem de Fundo">
         <div class="content">
-            <form id="formLogin">
+            <form id="formLogin" onsubmit="fazerLogin(event)">
                 <h1>Login</h1> <br>
                 <i class="fa-solid fa-envelope"></i>
                 <input type="email" id="emailLogin" placeholder="Digite seu Email" required>

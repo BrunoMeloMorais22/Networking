@@ -10,7 +10,7 @@ function fazerCadastro(event){
     fetch("/cadastro", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: ({ nomeCadastro, emailCadastro, senhaCadastro, confirmarSenha })
+        body: JSON.stringify({ nomeCadastro, emailCadastro, senhaCadastro, confirmarSenha })
     })
     .then(res => res.json())
     .then(data =>{
