@@ -1,44 +1,34 @@
 
-document.getElementById("inscricaoFormulario").addEventListener("submit", function(event){
+
+function fazerInscricao(event){
     event.preventDefault()
 
     let name = document.getElementById("name").value
     let email = document.getElementById("email").value
-    let phone = document.getElementById("phone").value
-    let cpf = document.getElementById("cpf").value
-    let info = document.getElementById("info")
+    let telefone = document.getElementById("telefone").value
+    let inscricao = document.getElementById("respostaInscricao")
 
-    info.innerHTML = "" 
+    fetch("/inscricao", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ name, email, telefone})
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log("Resposta do servidor", data)
 
-    if(name === "" || email === "" || phone === "" || cpf === ""){
-        let p = document.createElement("p")
-        p.textContent = "Prencha todos os espaços em branco"
-        p.style.color = "red"
-        p.style.fontWeight = "bold"
-        document.getElementById("info").appendChild(p)
-    }
+        document.getElementById("respostaInscricao").innerText = data
 
-    else{
-        let p2 = document.createElement("p")
-        let button = document.createElement("button")
-        p2.textContent = "Inscrição enviada com sucesso."
-        button.style.padding = "10px"
-        button.textContent = "Voltar ao menu principal"
-        button.style.background = "green"
-        button.style.marginTop = "10px"
-        button.style.fontSize = "18px"
-        button.style.borderRadius = "20px"
-        button.style.cursor = "pointer"
-        button.style.border = "black"
-        button.style.fontFamily = "Courier New', Courier, monospace;"
-        p2.style.color = "green"
-        p2.style.fontSize = "20px"
-        p2.style.fontWeight = "bold"
-        document.getElementById("info").appendChild(p2)
-        document.getElementById("info").appendChild(button)
+        if(data.mensagem === "Inscricao Feita com sucesso"){
+            inscricao.style.color = "green"
+            inscricao.style.fontSize = "20px"
 
-        button.onclick = () =>{
-            window.location.href = "/index2f"
+            setTimeout(() => {
+                window.location.href = "/minhasinscricoes"
+            })
         }
-    }
-})
+        else{
+            inscricao.innerText = "Erro no backend"
+        }
+    })
+}

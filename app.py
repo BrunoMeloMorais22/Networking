@@ -1,4 +1,4 @@
-from flask import Flask, request, session, jsonify, render_template
+from flask import Flask, request, session, jsonify, render_template, redirect, url_for
 from datetime import timedelta
 from flask_cors import CORS
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -91,12 +91,53 @@ def perfil():
     return render_template("perfil.html")
 
 @app.route("/inscricao", methods=["GET", "POST"])
-def incricao():
-    return render_template("inscricao.html")
+def inscricao():
+    if request.method == "GET":
+        return render_template("inscricao.html")
+    
+    try:
+        if request.method == "POST":
+            data = request.get_json()
 
-@app.route("/minhasincricoes", methods=["GET", "POST"])
+            if not data:
+                return jsonify({"mensagem": "Erro: erro ao carregar dados"})
+            
+            name = data.get("name")
+            email = data.get("email")
+            telefone = data.get("telefone")
+            pcd = data.get("pcd")
+            nopcd = data.get("nopcd")
+            semgluten = data.get("semgluten")
+            vegano = data.get("vegano")
+            vegetariano = data.get("vegetariano")
+            semlactose = data.get("semlactose")
+            diabetico = data.get("diabetico")
+
+            if not name or not email or not telefone:
+                return jsonify({"mensagem": "Por favor, preencha todos os campos (nome, email e telefone)"}), 400
+            
+            else:
+                session["name"] = name
+                session["email"] = email
+                session["telefone"] = telefone
+                return jsonify({"mensagem": "Inscricao Feita com sucesso"}), 200
+    except Exception as erro:
+        print("Erro no servidor", erro)
+        return jsonify({"mensagem": "Erro no backend"})   
+    return render_template("inscricao.html")
+            
+
+@app.route("/minhasinscricoes", methods=["GET", "POST"])
 def minhasinscricoes():
-    return render_template("minhasinscricoes.html")
+
+    try:
+        name = session.get("name")
+        email = session.get("email")
+        telefone = session.get("telefone")
+        return render_template("minhasinscricoes.html", name=name, email=email, telefone=telefone)
+    except Exception as erro:
+        print("Erro no backend", erro)
+        return jsonify({"mensagem": "Erro no backend"})
 
 if __name__ == "__main__":
     with app.app_context():

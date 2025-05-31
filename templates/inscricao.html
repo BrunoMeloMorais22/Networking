@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="container">
-        <form id="inscricaoFormulario">
+        <form id="inscricaoFormulario" onsubmit="fazerInscricao(event)">
             <h1>Inscrição</h1>
             <br>
             <div class="input-box">
@@ -23,7 +23,7 @@
             </div>
             <div class="input-box">
                 <i class="fa-solid fa-phone"></i>
-                <input type="tel" id="phone" name="phone" placeholder="Digite seu Telefone" required> <br><br>
+                <input type="tel" id="telefone" name="telefone" placeholder="Digite seu Telefone" required> <br><br>
             </div>
             <div class="input-box">
                 <i class="fa-solid fa-phone"></i>
@@ -44,8 +44,8 @@
                 <input type="checkbox" name="alimentacao" id="semgluten"> Sem glúten <br>
                 <input type="checkbox" name="alimentacao" id="vegano"> Vegano(a) <br>
                 <input type="checkbox" name="alimentacao" id="vegetariano"> Vetetariano(a) <br>
-                <input type="checkbox" name="alimentacao" id="semgluten"> Sem Lactose <br>
-                <input type="checkbox" name="alimentacao" id="diabetico"> Diabético <br>
+                <input type="checkbox" name="alimentacao" id="semlactose"> Sem Lactose <br>
+                <input type="checkbox" name="alimentacao" id="diabetico"> Diabético(a) <br>
             </div>
             <br>
 
@@ -53,6 +53,10 @@
             <br>
             <button type="submit">Enviar</button>
 
+            <div id="respostaInscricao">
+
+                
+            </div>
         </form>
     </div>
 
