@@ -42,6 +42,9 @@ def cadastro():
             if not nomeCadastro or not emailCadastro or not senhaCadastro or not confirmarSenha:
                 return jsonify({"mensagem": "Por favor, preencha todos os campos"}), 400
             
+            if confirmarSenha != senhaCadastro:
+                return jsonify({"mensagem": "As senhas não combinam"})
+            
             user_exists = usuarios.query.filter_by(emailCadastro=emailCadastro).first()
 
             hashed_senha = generate_password_hash(senhaCadastro)
@@ -143,3 +146,4 @@ if __name__ == "__main__":
     with app.app_context():
         db.create_all()
     app.run(debug=True, port=8000)
+
