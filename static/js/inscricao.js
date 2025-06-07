@@ -32,3 +32,21 @@ function fazerInscricao(event){
         }
     })
 }
+
+document.getElementById("btn_enviar").addEventListener("click", function(){
+    let email = document.getElementById("email").value
+
+    fetch("/enviar_email", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({email})
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data.mensagem || data.erro)
+    })
+
+    .catch(error => {
+        console.error("Erro ao enviar email", error)
+    })
+})

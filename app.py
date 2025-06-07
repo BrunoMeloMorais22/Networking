@@ -3,6 +3,8 @@ from datetime import timedelta
 from flask_cors import CORS
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
+import smtplib
+from email.message import EmailMessage
 import json
 from db import db
 
@@ -132,7 +134,8 @@ def inscricao():
 
 @app.route("/minhasinscricoes", methods=["GET", "POST"])
 def minhasinscricoes():
-
+    if "email" not in session or not session.get("email"):
+        return redirect(url_for("login"))
     try:
         name = session.get("name")
         email = session.get("email")
@@ -141,6 +144,37 @@ def minhasinscricoes():
     except Exception as erro:
         print("Erro no backend", erro)
         return jsonify({"mensagem": "Erro no backend"})
+
+@app.route("/enviar_email", methods=["POST"])
+def enviar_email():
+    data = request.get_json()
+    email = data.get("email")
+
+    msg = EmailMessage()
+    msg['Subject'] = "Email de instruções de inscrição"
+    msg['From'] = "grumelo098@gmail.com"
+    msg['To'] = email
+    msg.add_alternative(f"""
+    <!DOCTYPE html>
+<html>
+  <body>
+    <h2>📩 Bem-vindo à inscrição!</h2>
+    <p>✅ Seu processo de inscrição está finalizado.</p>
+    <p>Você perceberá que na sua inscrição conterá com 4 digitos, esse é o seu código de acesso no dia do evento</p>
+    <hr>
+    <p>💬 Não responda este email. Em caso de dúvidas, entre em contato.</p>
+  </body>
+</html>
+""", subtype='html')
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+            smtp.login("grumelo098@gmail.com", 'ourf sgnz wkiw sxse')
+            smtp.send_message(msg)
+            print("Email enviado com sucesso")
+            return jsonify({"mensagem": "Email enviado com sucesso!"}), 200
+    except Exception as e:
+        print(f"Erro ao enviar email: {e}")
+        return jsonify({"erro": "Erro ao enviar email"}), 500
 
 if __name__ == "__main__":
     with app.app_context():
