@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" onsubmit="redefinir(); return false;">
+        <input type="password" id="novaSenha" placeholder="Nova senha">
+        <button type="submit">Redefinir</button>
+
+        <span id="feedbackSenhaNova"></span>
+    </form>
+
+    <script>
+        function redefinir() {
+  fetch(window.location.pathname, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ novaSenha: document.getElementById("novaSenha").value })
+  }).then(r => r.json()).then(console.log);
+}
+    </script>
+</body>
+</html>

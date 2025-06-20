@@ -7,17 +7,20 @@ import smtplib
 from email.message import EmailMessage
 import json
 from db import db
+from itsdangerous import URLSafeTimedSerializer
 
 app = Flask(__name__)
+serializer = URLSafeTimedSerializer("corinthians")
 
 app.secret_key = "corinthians"
-app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///db.sqlite3'
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///' + os.path.join(basedir, 'db.sqlite3')
+
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.permanent_session_lifetime = timedelta(minutes=30)
 
 db.init_app(app)
 CORS(app)
-
 from models import usuarios
 
 @app.route("/", methods=["GET", "POST"])
@@ -134,8 +137,6 @@ def inscricao():
 
 @app.route("/minhasinscricoes", methods=["GET", "POST"])
 def minhasinscricoes():
-    if "email" not in session or not session.get("email"):
-        return redirect(url_for("login"))
     try:
         name = session.get("name")
         email = session.get("email")
@@ -175,6 +176,71 @@ def enviar_email():
     except Exception as e:
         print(f"Erro ao enviar email: {e}")
         return jsonify({"erro": "Erro ao enviar email"}), 500
+
+@app.route("/esqueci_senha", methods=["GET", "POST"])
+def esqueci_senha():
+    if request.method == "POST":
+        data = request.get_json()
+
+        email = data.get("email")
+
+        if not email:
+            return jsonify({"mensagem": "Email é obrigatório"})
+        
+        user = usuarios.query.filter_by(emailCadastro=email).first()
+
+        if user:
+            token = serializer.dumps(email, salt="senha-reset")
+            user.token = token
+            db.session.commit()
+
+            link = url_for("redefinir_senha", token=token, _external=True)
+
+            msg = EmailMessage()
+            msg['Subject'] = "Redefinição de Senha"
+            msg['From'] = "grumelo098@gmail.com"
+            msg['To'] = email
+            msg.set_content(f"Acesse o link para redefinir sua senha {link}")
+
+            try:
+                with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+                    smtp.login("grumelo098@gmail.com", 'ourf sgnz wkiw sxse')
+                    smtp.send_message(msg)
+                return jsonify({"mensagem": "Link de redefinição enviado para o seu email"}), 200
+            except Exception as e:
+                print("Erro ao enviar email", e)
+                return jsonify({"mensagem": "Erro ao enviar email"}), 500
+        else:
+            return jsonify({"mensagem": "Email não encontrado"}), 404
+    return render_template("esqueceuasenha.html")
+
+@app.route("/redefinir_senha/<token>", methods=["GET", "POST"])
+def redefinir_senha(token):
+    try:
+        email = serializer.loads(token, salt="senha-reset", max_age=3600)
+    except:
+        return jsonify({"mensagem": "Link inválido ou expirado"}), 400
+    
+    user = usuarios.query.filter_by(emailCadastro=email).first()
+
+    if request.method == "POST":
+        data = request.get_json()
+        novaSenha = data.get("novaSenha")
+
+        if not novaSenha:
+            return jsonify({"mensagem": "Nova Senha Obrigatório"}), 400
+        
+        hashed = generate_password_hash(novaSenha)
+        user.senhaCadastro = hashed
+        user.confirmarSenha = hashed
+        user.token = None
+        db.session.commit()
+
+
+        return jsonify({"mensagem": "Senha redefinida com sucesso"}), 200
+    
+    return render_template("redefinir_senha.html")
+
 
 if __name__ == "__main__":
     with app.app_context():

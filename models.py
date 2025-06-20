@@ -9,4 +9,5 @@ class usuarios(db.Model):
     emailCadastro = db.Column(db.String(100), nullable=False)
     senhaCadastro = db.Column(db.String(100), nullable=False)
     confirmarSenha = db.Column(db.String(100), nullable=False)
+    token = db.Column(db.String(200))
     

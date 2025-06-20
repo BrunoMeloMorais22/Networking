@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/esqueceuasenha.css">
-    <title>Document</title>
+    <title>Recuperar Senha - Networking</title>
 </head>
 <body>
     <form id="esqueceuSenha">
         <h1>Email de recuperação de Senha</h1> <br> 
         <p>Digite o seu email para recuperação senha</p> <br>
 
-        <input type="email" id="email" name="email" placeholder="Digite seu email"> 
+        <input type="email" id="email" name="email" placeholder="Digite seu email" required> 
         <button type="submit">Enviar</button>
-        <button>Reenviar</button> <br> <br>
+        <button type="submit" onclick="reenviar()">Reenviar</button> <br> <br>
 
         <div id="info"></div>
     </form>

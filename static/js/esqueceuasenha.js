@@ -1,20 +1,30 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("esqueceuSenha");
 
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-document.getElementById("esqueceuSenha").addEventListener("submit", function(event){
-    event.preventDefault()
+        const email = document.getElementById("email").value;
 
-    let email = document.getElementById("email").value
+        if (!email) {
+            document.getElementById("info").innerText = "Por favor, preencha o campo de email.";
+            return;
+        }
 
-    if(email === ""){
-        alert("Por favor, insira um email")
-        return
-    }
+        try {
+            const response = await fetch("/esqueci_senha", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email })
+            });
 
-    else{
-        let p = document.createElement("p")
-        p.textContent = `Um email de instruções foi enviado para o seguinte email ${email}`
-        p.style.color = "green"
-        p.style.fontWeight = "bold"
-        document.getElementById("info").appendChild(p)
-    }
-})
+            const data = await response.json();
+            document.getElementById("info").innerText = data.mensagem;
+        } catch (error) {
+            console.error("Erro ao enviar requisição:", error);
+            document.getElementById("info").innerText = "Erro ao tentar enviar email. Tente novamente mais tarde.";
+        }
+    });
+});
